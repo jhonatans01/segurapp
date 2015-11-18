@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Listar ocorrências</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="/inicio.xhtml">
+
+            <ui:define name="conteudo">
+                <h:form>
+                    <h:inputHidden value="#{ocorrenciaBean.o}"
+                                   converter="ConversorOcorrencia"/>
+                    
+                    <p:growl id="growl" sticky="false" showDetail="true" autoUpdate="true"/>
+                    
+                    <p:panel header="Lista de ocorrências">
+                        <p:dataTable value="#{ocorrenciaBean.ocorrencias}"
+                                     var="ocorrencia">
+                            <p:column headerText="Classificação">
+                                <h:outputText value="#{ocorrencia.classificacao}"/>
+                            </p:column>
+                            <p:column headerText="Descrição do assalto">
+                                <h:outputText value="#{ocorrencia.descricaoAssalto}"/>
+                            </p:column>
+                            <p:column headerText="Descrição do assaltante">
+                                <h:outputText value="#{ocorrencia.descricaoAssaltante}"/>
+                            </p:column>
+                            <p:column headerText="Bairro">
+                                <h:outputText value="#{ocorrencia.bairro}"/>
+                            </p:column>
+                            <p:column headerText="Bens">
+                                <h:outputText value="#{ocorrencia.bens}"/>
+                            </p:column>
+                        </p:dataTable>
+                    </p:panel>
+
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

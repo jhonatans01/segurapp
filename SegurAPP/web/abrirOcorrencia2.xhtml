@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Cadastrar ocorrência</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="/inicio.xhtml">
+
+            <ui:define name="conteudo">
+                <h:form>
+                    <h:inputHidden value="#{ocorrenciaBean.o.id}"/>
+                    
+                    <p:growl id="growl" sticky="false" showDetail="true" autoUpdate="true"/>
+                    <div align="left">
+                        <p:commandButton value="Dados do denunciante" disabled="true" />
+                        <p:commandButton value="Dados da ocorrência" disabled="true"
+                                         style="background-color: transparent;
+                                         opacity: 10;
+                                         color: #656565"/>
+                    </div>
+
+                    <p:panel header="Insira os dados">
+                        <h:panelGrid columns="2">
+                            <h:outputText value="Descrição do assalto" />
+                            <p:inputTextarea rows="2" cols="40"
+                                             value="#{ocorrenciaBean.o.descricaoAssalto}"/>
+
+                            <h:outputText value="Descrição do assaltante"/>
+                            <p:inputTextarea rows="2" cols="40"
+                                             value="#{ocorrenciaBean.o.descricaoAssaltante}"/>
+
+                            <h:outputText value="Bairro"/>
+                            <p:inputText value="#{ocorrenciaBean.o.bairro}"/>
+
+                            <h:outputText value="*Classificação"/>
+<!--                            <p:selectOneButton value="#{ocorrenciaBean.o.classificacao}"
+                                               required="true"
+                                               requiredMessage="Escolha a classificaçao do delito">
+                                <f:selectItem itemLabel="Furto" itemValue="Furto"/>
+                                <f:selectItem itemLabel="Roubo" itemValue="Roubo"/>
+                            </p:selectOneButton>-->
+                            <p:inputText value="#{ocorrenciaBean.o.classificacao}"/>
+
+                            <h:outputText value="*Bens"/>
+                            <p:inputTextarea rows="2" cols="40"
+                                             value="#{ocorrenciaBean.o.bens}"
+                                             required="true"
+                                             requiredMessage="Necessário informar os bens"/>
+                        </h:panelGrid>
+                        <p align="left">
+                            * Campos obrigatórios
+                        </p>
+                        <p:commandButton value="Cancelar"
+                                         action="/inicio.xhtml"/>
+                        <p:commandButton value="Concluir"
+                                         action="#{ocorrenciaBean.salvar}"/>
+
+                    </p:panel>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

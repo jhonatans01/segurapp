@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>.:: SegurAPP ::. </title>
+    </h:head>
+    <h:body>
+        <div align="center" style="max-height: 100%;max-width: 100%">
+            <p:layout style="min-width:20%;max-width:100%;min-height:600px;max-height: 100%" fullPage="false">
+            <!--<p:layout style="min-width:1020px;max-width:1300px;min-height:600px" fullPage="false">-->
+            <p:layoutUnit position="north" size="100" maxSize="100" style="max-height: ">
+                    <p:graphicImage url="/resources/images/cor1.jpg"
+                                    width="1290" height="75"/>
+                </p:layoutUnit>
+
+            <p:layoutUnit position="west" size="250px"
+                          minSize="200"
+                          maxSize="200">
+                    <ui:insert name="menu">
+                        <h:form>
+                            <p:slideMenu style="width: 170px; min-width: 170px;
+                                         min-height: 150px">
+                                <p:menuitem value="Inicio" action="inicio.xhtml"/>
+                                <p:menuitem value="Criar ocorrência" action="abrirOcorrencia.xhtml"/>
+                                <p:menuitem value="Listar ocorrências" action="listarOcorrencias.xhtml"/>
+                                <p:menuitem value="Ranking por bairro"
+                                            action="ranking.xhtml" />
+                            </p:slideMenu>
+                        </h:form>
+                    </ui:insert>
+                </p:layoutUnit>  
+                <p:layoutUnit position="center">  
+                    <ui:insert name="conteudo">
+                        <h:outputText value="Bem vindo ao SegurApp!"
+                                      style="font-family: courier; font-size: 30px"/>
+                    </ui:insert>
+                </p:layoutUnit>  
+            </p:layout>  
+        </div>
+    </h:body>
+</html>
+
