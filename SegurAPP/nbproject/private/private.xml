@@ -1,26 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="2">
-        <file>
-            <url>src/java/br/com/bean/DenuncianteBean.java</url>
-            <bookmark id="1">
-                <name/>
-                <line>57</line>
-                <key/>
-            </bookmark>
-        </file>
-        <file>
-            <url>web/ranking.xhtml</url>
-            <bookmark id="2">
-                <name/>
-                <line>20</line>
-                <key/>
-            </bookmark>
-        </file>
-    </editor-bookmarks>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/jhonatan/Documents/NetBeansProjects/SegurAPP/src/java/br/com/entity/Denunciante.java</file>
+            <file>file:/Applications/mampstack-5.5.30-0/apache2/htdocs/SegurApp/abrirOcorrencia.php</file>
+            <file>file:/Applications/mampstack-5.5.30-0/apache2/htdocs/SegurApp/editarOcorrencia.php</file>
+            <file>file:/Applications/mampstack-5.5.30-0/apache2/htdocs/SegurApp/infUsuario.php</file>
+            <file>file:/Applications/mampstack-5.5.30-0/apache2/htdocs/SegurApp/index.php</file>
+            <file>file:/Applications/mampstack-5.5.30-0/apache2/htdocs/SegurApp/listarOcorrencias.php</file>
         </group>
     </open-files>
 </project-private>
