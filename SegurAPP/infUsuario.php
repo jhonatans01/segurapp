@@ -9,19 +9,21 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <title></title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>3 Column Layout</title>
-        <link rel="stylesheet" href="styles.css"/>
+        <title>SegurApp</title>
+        <link rel="stylesheet" href="normalize.css">
+        <link rel="stylesheet" href="style.css"/>
 
     </head>
 
     <body>
 
-        <header id="header"><p>SegurApp</p></header>
-
+        <header>
+            <section class="sectionTop"><p>SegurApp</p></section>
+        </header>
         <div id="container">
 
             <main id="center" class="column">
-                <article>
+                <section class="sectionBody">
                     <?php
                     require_once './conexao.php';
 
@@ -38,75 +40,88 @@ and open the template in the editor.
                         $linha = mysql_fetch_array($dados);
                     }
                     ?>
-                    <h1>Informações do cadastro</h1>
-                    <form method="post" action="editarLogin.php">
-                        <fieldset>
-                            <legend>Dados do login</legend>
-                            Login: <input type="text"
-                                          name="login"
-                                          required="true"
-                                          value=
-                                          "<?php
-                                          echo $linha['login'];
-                                          ?>"/></br>
-                            Senha: <input type="password"
-                                          name="senha"
-                                          required="true"
-                                          value=
-                                          "<?php
-                                          echo $linha['senha'];
-                                          ?>"/></br>
-                        </fieldset>
+                    <h3>Informações do cadastro</h3>
+                    <form method="post" action="editarLogin.php"
+                          style="font-size: 13px">
+                        <!--<fieldset>-->
+                        <legend>Dados do login</legend>
+                        <input type="text"
+                               name="login"
+                               required="true"
+                               placeholder="Login"
+                               class="register-input"
+                               value=
+                               "<?php
+                               echo $linha['login'];
+                               ?>"/></br>
+                        <input type="password"
+                               name="senha"
+                               required="true"
+                               placeholder="Senha"
+                               class="register-input"
+                               value=
+                               "<?php
+                               echo $linha['senha'];
+                               ?>"/></br>
+                        <!--</fieldset>-->
 
-                        <fieldset>
-                            <legend>Dados do usuário</legend>
-                            Nome: <input type="text"
-                                         name="nome"
-                                         required="true"
-                                         value=
-                                         "<?php
-                                         echo $linha['nome'];
-                                         ?>"/></br>
-                            Telefone: <input type="text"
-                                             name="telefone"
-                                             required="true"
-                                             value=
-                                             "<?php
-                                             echo $linha['telefone'];
-                                             ?>"/></br>
-                            Email: <input type="text"
-                                          name="email"
-                                          required="true"
-                                          value=
-                                          "<?php
-                                          echo $linha['email'];
-                                          ?>"/></br>
-                        </fieldset>
+                        <!--<fieldset>-->
+                        <legend>Dados do usuário</legend>
+                        <input type="text"
+                               name="nome"
+                               required="true"
+                               placeholder="Nome"
+                               class="register-input"
+                               value=
+                               "<?php
+                               echo $linha['nome'];
+                               ?>"/></br>
+                        <input type="text"
+                               name="telefone"
+                               required="true"
+                               placeholder="Telefone"
+                               class="register-input"
+                               value=
+                               "<?php
+                               echo $linha['telefone'];
+                               ?>"/></br>
+                        <input type="email"
+                               name="email"
+                               required="true"
+                               placeholder="Email"
+                               class="register-input"
+                               value=
+                               "<?php
+                               echo $linha['email'];
+                               ?>"/></br>
+                        <!--</fieldset>-->
 
                         <input type="submit" value="Salvar"/>
-                        <a href="excluirLogin.php">Deletar perfil</a>
+                        <a href="excluirLogin.php"
+                           style="text-decoration: none;
+                           color: black">
+                            <input type="button" value="Deletar perfil"/>
+                        </a>
                     </form>
-                </article>
+                </section>
             </main>
 
-            <nav id="left" class="column">
-                <h3>Painel</h3>
+            <section class="navform cf">
                 <ul>
                     <li><a href="index.php">Inicio</a></li>
                     <li><a href="logout.php">Logout</a></li>
                     <li><a href="criarLogin.php">Criar login</a></li>
-                    <li><a href="infUsuario.php">Editar login</a></li>
+                    <li><a id="active" href="infUsuario.php">Editar login</a></li>
                     <li><a href="abrirOcorrencia.php">Abrir Ocorrência</a></li>
                     <li><a href="listarOcorrencias.php">Listar ocorrências</a></li>
                     <li><a href="grafico.php">Ranking por bairro</a></li>
                 </ul>
-            </nav>
+            </section>
         </div>
 
         <div id="footer-wrapper">
             <footer id="footer"><p>UFRA - ICIBE</p></footer>
         </div>
-        
         <?php
         include './conexao.php'; //connect the connection page
 
@@ -119,6 +134,5 @@ and open the template in the editor.
             exit;
         }
         ?>
-
     </body>
 </html>

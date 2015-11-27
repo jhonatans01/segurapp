@@ -9,56 +9,73 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <title></title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>3 Column Layout</title>
-        <link rel="stylesheet" href="styles.css"/>
+        <title>SegurApp</title>
+        <link rel="stylesheet" href="normalize.css">
+        <link rel="stylesheet" href="style.css"/>
 
     </head>
 
     <body>
 
-        <header id="header"><p>SegurApp</p></header>
-
+        <header>
+            <section class="sectionTop"><p>SegurApp</p></section>
+        </header>
         <div id="container">
 
             <main id="center" class="column">
-                <article>
-
-                    <h1>Criar cadastro</h1>
-                    <form method="post" action="usuario.php">
-                        <fieldset>
-                            <legend>Dados do login</legend>
-                            Login: <input type="text" name="login" required="true"/></br>
-                            Senha: <input type="password" name="senha" required="true"/></br>
-                        </fieldset>
-
-                        <fieldset>
-                            <legend>Dados do usuário</legend>
-                            Nome: <input type="text" name="nome" required="true"/></br>
-                            Telefone: <input type="text" name="telefone" required="true"/></br>
-                            Email: <input type="text" name="email" required="true"/></br>
-                        </fieldset>
-                        <input type="submit"/>
+                <section class="sectionBody">
+                    <h3>Criar cadastro</h3>
+                    <form method="post" action="usuario.php"
+                          style="font-size: 13px">
+                        <input type="text"
+                               name="login"
+                               required="true"
+                               placeholder="Login"
+                               class="register-input"/></br>
+                        <input type="password"
+                               name="senha"
+                               required="true"
+                               placeholder="Senha"
+                               class="register-input"/></br>
+                        
+                        <legend>Dados do usuário</legend>
+                        <input type="text"
+                               name="nome"
+                               required="true"
+                               placeholder="Nome"
+                               class="register-input"/></br>
+                        <input type="text"
+                               name="telefone"
+                               required="true"
+                               placeholder="Telefone"
+                               class="register-input"/></br>
+                        <input type="email"
+                               name="email"
+                               required="true"
+                               placeholder="Email"
+                               class="register-input"></br>
+                        <input type="submit" class="register-button"
+                               value="Salvar"/>
                     </form>
-                </article>
+
+                </section>
             </main>
 
-            <nav id="left" class="column">
-                <h3>Painel</h3>
+            <section class="navform cf">
                 <ul>
                     <li><a href="index.php">Inicio</a></li>
                     <li><a href="logout.php">Logout</a></li>
-                    <li><a href="criarLogin.php">Criar login</a></li>
+                    <li><a id="active" href="criarLogin.php">Criar login</a></li>
                     <li><a href="infUsuario.php">Editar login</a></li>
                     <li><a href="abrirOcorrencia.php">Abrir Ocorrência</a></li>
                     <li><a href="listarOcorrencias.php">Listar ocorrências</a></li>
                     <li><a href="grafico.php">Ranking por bairro</a></li>
                 </ul>
-            </nav>
+            </section>
         </div>
 
         <div id="footer-wrapper">
             <footer id="footer"><p>UFRA - ICIBE</p></footer>
         </div>
-
     </body>
 </html>

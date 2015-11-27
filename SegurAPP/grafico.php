@@ -9,31 +9,32 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <title></title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>3 Column Layout</title>
-        <link rel="stylesheet" href="styles.css"/>
+        <title>SegurApp</title>
+        <link rel="stylesheet" href="normalize.css">
+        <link rel="stylesheet" href="style.css"/>
 
     </head>
 
     <body>
 
-        <header id="header"><p>SegurApp</p></header>
-
+        <header>
+            <section class="sectionTop"><p>SegurApp</p></section>
+        </header>
         <div id="container">
 
             <main id="center" class="column">
-                <center>
-                    <article>
-
+                <section class="sectionBody" style="padding-top: 0px">
+                    <center>
                         <p>Ranking das denúncias por bairro</p>
-                        <p><img src="grafico-pie.php" title="grafico" /></p>
+                        <p><img src="grafico-pie.php" title="grafico"
+                                style="width: 80% "/></p>
                         <p>&nbsp;</p>
 
-                    </article>
-                </center>
+                    </center>
+                </section>
             </main>
 
-            <nav id="left" class="column">
-                <h3>Painel</h3>
+            <section class="navform cf">
                 <ul>
                     <li><a href="index.php">Inicio</a></li>
                     <li><a href="logout.php">Logout</a></li>
@@ -41,14 +42,13 @@ and open the template in the editor.
                     <li><a href="infUsuario.php">Editar login</a></li>
                     <li><a href="abrirOcorrencia.php">Abrir Ocorrência</a></li>
                     <li><a href="listarOcorrencias.php">Listar ocorrências</a></li>
-                    <li><a href="grafico.php">Ranking por bairro</a></li>
+                    <li><a id="active" href="grafico.php">Ranking por bairro</a></li>
                 </ul>
-            </nav>
+            </section>
         </div>
 
         <div id="footer-wrapper">
             <footer id="footer"><p>UFRA - ICIBE</p></footer>
         </div>
-
     </body>
 </html>

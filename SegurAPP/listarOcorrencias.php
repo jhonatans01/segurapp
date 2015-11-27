@@ -9,20 +9,22 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <title></title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>3 Column Layout</title>
-        <link rel="stylesheet" href="styles.css"/>
+        <title>SegurApp</title>
+        <link rel="stylesheet" href="normalize.css">
+        <link rel="stylesheet" href="style.css"/>
 
     </head>
 
     <body>
 
-        <header id="header"><p>SegurApp</p></header>
-
+        <header>
+            <section class="sectionTop"><p>SegurApp</p></section>
+        </header>
         <div id="container">
 
             <main id="center" class="column">
-                <article>
-                    <h1>Lista de ocorrências</h1>
+                <section class="sectionBody">
+                    <h3>Lista de ocorrências</h3>
                     <?php
                     require_once './conexao.php';
 
@@ -40,7 +42,7 @@ and open the template in the editor.
 
                             $dados = mysql_query($sql);
 
-                            echo '<table cellpadding="0" cellspacing="0" class="db-table">';
+                            echo '<table cellpadding="0" cellspacing="0" id="mytable">';
                             echo '<tr><th>Desc. Assalto</th><th>Desc. Assaltante</th>'
                             . '<th>Bairro</th><th>Classificação</th>'
                             . '<th>Bens</th><th>Operações</th></tr>';
@@ -52,8 +54,14 @@ and open the template in the editor.
                                 . $linha['bairro'] . "</td><td>"
                                 . $linha['classificacao'] . "</td><td>"
                                 . $linha['bens'] . "</td><td>"
-                                . "<a href=\"editarOcorrencia.php?id=$id\">[Editar]</a>"
-                                . "<a href=\"excluirOcorrencia.php?id=$id\">[Excluir]</a></td></tr>";
+                                . "<a href=\"editarOcorrencia.php?id=$id\""
+                                . " style=\"text-decoration: none;"
+                                . "color: black\">"
+                                . "<input type='button' value='Editar' /></a>"
+                                . "<a href=\"excluirOcorrencia.php?id=$id\""
+                                . " style=\"text-decoration: none;"
+                                . "color: black\">"
+                                . "<input type='button' value='Excluir' /></a></td></tr>";
 
 
                                 echo '</tr>';
@@ -62,28 +70,25 @@ and open the template in the editor.
                         }
                     }
                     ?>
-                </article>
-
+                </section>
             </main>
 
-            <nav id="left" class="column">
-                <h3>Painel</h3>
+            <section class="navform cf">
                 <ul>
                     <li><a href="index.php">Inicio</a></li>
                     <li><a href="logout.php">Logout</a></li>
                     <li><a href="criarLogin.php">Criar login</a></li>
                     <li><a href="infUsuario.php">Editar login</a></li>
                     <li><a href="abrirOcorrencia.php">Abrir Ocorrência</a></li>
-                    <li><a href="listarOcorrencias.php">Listar ocorrências</a></li>
+                    <li><a id="active" href="listarOcorrencias.php">Listar ocorrências</a></li>
                     <li><a href="grafico.php">Ranking por bairro</a></li>
                 </ul>
-            </nav>
+            </section>
         </div>
 
         <div id="footer-wrapper">
             <footer id="footer"><p>UFRA - ICIBE</p></footer>
         </div>
-
         <?php
         include './conexao.php'; //connect the connection page
 

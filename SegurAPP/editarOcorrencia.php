@@ -9,87 +9,103 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <title></title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>3 Column Layout</title>
-        <link rel="stylesheet" href="styles.css"/>
+        <title>SegurApp</title>
+        <link rel="stylesheet" href="normalize.css">
+        <link rel="stylesheet" href="style.css"/>
 
     </head>
 
     <body>
 
-        <header id="header"><p>SegurApp</p></header>
-
+        <header>
+            <section class="sectionTop"><p>SegurApp</p></section>
+        </header>
         <div id="container">
 
             <main id="center" class="column">
-                <article>
+                <section class="sectionBody">
                     <h1>Editar ocorrência</h1>
-                    <form method="post" action="editarOc_Salvar.php">
-                        <fieldset>
-                            <?php
-                            require_once './conexao.php';
-                            if (!$link) {
-                                echo "erro ao conectar ao banco de dados!";
-                                exit();
-                            } else {
-                                $id = $_GET['id'];
+                    <form method="post" action="editarOc_Salvar.php"
+                          style="font-size: 13px">
+                        <!--<fieldset>-->
+                        <?php
+                        require_once './conexao.php';
+                        if (!$link) {
+                            echo "erro ao conectar ao banco de dados!";
+                            exit();
+                        } else {
+                            $id = $_GET['id'];
 
-                                $sql = "SELECT * FROM ocorrencia WHERE id = $id";
+                            $sql = "SELECT * FROM ocorrencia WHERE id = $id";
 
-                                $dados = mysql_query($sql);
+                            $dados = mysql_query($sql);
 
-                                $linha = mysql_fetch_array($dados);
-                            }
-                            ?>
-                            <legend>Insira os dados abaixo</legend>
+                            $linha = mysql_fetch_array($dados);
+                        }
+                        ?>
+                        <legend>Insira os dados abaixo</legend>
 
-                            <input type="text"
-                                   name="id1"
-                                   hidden="true"
-                                   value=
-                                   "<?php
-                                   echo $id;
-                                   ?>" />
-                            Descreva o assalto: <input type="text"
-                                                       name="dAssalto"
-                                                       value=
-                                                       "<?php
-                                                       echo $linha['descricaoAssalto'];
-                                                       ?>"/></br>
-                            Descreva o assaltante: <input type="text"
-                                                          name="dAssaltante"
-                                                          value=
-                                                          "<?php
-                                                          echo $linha['descricaoAssaltante'];
-                                                          ?>"/></br>
-                            Bairro onde ocorreu: <input type="text"
-                                                        name="bairro"
-                                                        value=
-                                                        "<?php
-                                                        echo $linha['bairro'];
-                                                        ?>"/></br>
-                            Classificação (Furto/Roubo): <input type="text"
-                                                                name="classificacao"
-                                                                value=
-                                                                "<?php
-                                                                echo $linha['classificacao'];
-                                                                ?>"/></br>
-                            Bens levados: <input type="text"
-                                                 name="bens"
-                                                 value=
-                                                 "<?php
-                                                 echo $linha['bens'];
-                                                 ?>"/></br>
-                        </fieldset>
-                        <input type="submit" value="Salvar" name="salvar"/>
+                        <input type="text"
+                               name="id1"
+                               hidden="true"
+                               value=
+                               "<?php
+                               echo $id;
+                               ?>" />
+                        <input type="text"
+                               name="dAssalto"
+                               name="dAssaltante"
+                               placeholder="Descreva o assalto"
+                               class="register-input"
+                               value=
+                               "<?php
+                               echo $linha['descricaoAssalto'];
+                               ?>"/></br>
+                        <input type="text"
+                               name="dAssaltante"
+                               placeholder="Descreva o assaltante"
+                               class="register-input"
+                               value=
+                               "<?php
+                               echo $linha['descricaoAssaltante'];
+                               ?>"/></br>
+                        <input type="text"
+                               name="bairro"
+                               placeholder="Bairro onde ocorreu"
+                               class="register-input"
+                               value=
+                               "<?php
+                               echo $linha['bairro'];
+                               ?>"/></br>
+                        <div class="register-switch">
+                            <input type="radio"
+                                   name="classificacao" value="Roubo"
+                                   id="furto" class="register-switch-input" >
+                            <label for="furto" class="register-switch-label">Furto</label>
+                            <input type="radio"
+                                   name="classificacao" value="Furto"
+                                   id="roubo" class="register-switch-input" checked>
+                            <label for="roubo" class="register-switch-label">Roubo</label>
+                        </div></br>
+                        <input type="text"
+                               name="bens"
+                               placeholder="Bens levados"
+                               class="register-input"
+                               value=
+                               "<?php
+                               echo $linha['bens'];
+                               ?>" /></br>
+                        <!--</fieldset>-->
+                        <input type="submit" value="Salvar" name="salvar"
+                               class="register-button"/>
 
                     </form>
-                </article>								
+                </section>
             </main>
 
-            <nav id="left" class="column">
-                <h3>Painel</h3>
+            <section class="navform cf">
                 <ul>
-                    <li><a href="index.php">Inicio</a></li>
+                    <li><a id="active" href="index.php">Inicio</a></li>
                     <li><a href="logout.php">Logout</a></li>
                     <li><a href="criarLogin.php">Criar login</a></li>
                     <li><a href="infUsuario.php">Editar login</a></li>
@@ -97,7 +113,7 @@ and open the template in the editor.
                     <li><a href="listarOcorrencias.php">Listar ocorrências</a></li>
                     <li><a href="grafico.php">Ranking por bairro</a></li>
                 </ul>
-            </nav>
+            </section>
         </div>
 
         <div id="footer-wrapper">
